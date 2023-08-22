@@ -9,18 +9,21 @@ import java.util.Arrays;
 
 public class ScatteringAndGatheringTest {
 
+    // telnet 127.0.0.1 7000
+    // CTRL+]
+    // send 12345678901234567890
     public static void main(String[] args) throws IOException {
 
         ByteBuffer[] byteBuffers = new ByteBuffer[2];
         byteBuffers[0] = ByteBuffer.allocate(5);
         byteBuffers[1] = ByteBuffer.allocate(3);
+        int messageLength = 8;
 
         InetSocketAddress inetSocketAddress = new InetSocketAddress(7000);
         ServerSocketChannel serverSocketChannel = ServerSocketChannel.open();
         serverSocketChannel.socket().bind(inetSocketAddress);
         SocketChannel socketChannel = serverSocketChannel.accept();
 
-        int messageLength = 8;
         while (true) {
             int byteRead = 0;
             while (byteRead < messageLength) {
@@ -38,6 +41,9 @@ public class ScatteringAndGatheringTest {
                 byteWrite += 1;
             }
             Arrays.asList(byteBuffers).forEach(buffer -> {
+                //         position = 0;
+                //        limit = capacity;
+                //        mark = -1;
                 buffer.clear();
             });
             System.out.println("byteRead=" + byteRead + "byteWrite=" + byteWrite

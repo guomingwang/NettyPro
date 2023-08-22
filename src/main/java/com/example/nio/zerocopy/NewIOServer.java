@@ -27,6 +27,8 @@ public class NewIOServer {
 //                    e.printStackTrace();
                     break;
                 }
+                // position = 0;
+                // mark = -1;
                 byteBuffer.rewind(); // 倒带
             }
         }

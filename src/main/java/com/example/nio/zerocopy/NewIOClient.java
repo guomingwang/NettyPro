@@ -9,7 +9,7 @@ import java.nio.channels.SocketChannel;
 public class NewIOClient {
 
     public static void main(String[] args) throws IOException {
-        String fileName = "eSupport.zip";
+        String fileName = "01.txt";
         FileChannel fileChannel = new FileInputStream(fileName).getChannel();
 
         SocketChannel socketChannel = SocketChannel.open();

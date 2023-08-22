@@ -1,4 +1,4 @@
-package com.example.nio.channel;
+package com.example.nio.zerocopy;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
