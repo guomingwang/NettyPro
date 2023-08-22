@@ -70,6 +70,12 @@ public class GroupChatClient {
 
     public static void main(String[] args) throws IOException {
         GroupChatClient chatClient = new GroupChatClient();
+        // 主线程创建一个扫描流
+        Scanner scanner = new Scanner(System.in);
+        while (scanner.hasNext()) {
+            String s = scanner.nextLine();
+            chatClient.sendInfo(s);
+        }
         // 创建一个子线程
         new Thread(() -> {
             while (true) {
@@ -81,11 +87,5 @@ public class GroupChatClient {
                 }
             }
         }).start();
-        // 主线程创建一个扫描流
-        Scanner scanner = new Scanner(System.in);
-        while (scanner.hasNext()) {
-            String s = scanner.nextLine();
-            chatClient.sendInfo(s);
-        }
     }
 }

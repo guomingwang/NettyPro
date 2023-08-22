@@ -17,6 +17,9 @@ public class GroupChatServer {
         try {
             // 创建一个selector
             selector = Selector.open();
+            // 此两行代码没用，提醒注意区分
+//            selector.keys(); // 注册所创建的key
+//            selector.selectedKeys(); // 触发事件所创建的key
             // 创建一个ServerSocketChannel
             listenChannel = ServerSocketChannel.open();
             // ServerSocketChannel绑定端口
